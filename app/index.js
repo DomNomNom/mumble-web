@@ -56,7 +56,7 @@ function ConnectDialog () {
   self.tokenToAdd = ko.observable('')
   self.selectedTokens = ko.observableArray([])
   self.tokens = ko.observableArray([])
-  self.username = ko.observable(window.localStorage.getItem('username') || '')
+  self.username = ko.observable(window.localStorage.getItem('mumble.username') || '')
   self.password = ko.observable('')
   self.channelName = ko.observable('')
   self.joinOnly = ko.observable(false)
@@ -65,7 +65,7 @@ function ConnectDialog () {
   self.hide = self.visible.bind(self.visible, false)
   self.connect = function () {
     self.hide()
-    window.localStorage.setItem('username', self.username())
+    window.localStorage.setItem('mumble.username', self.username())
     ui.connect(self.username(), self.address(), self.port(), self.tokens(), self.password(), self.channelName())
   }
 
@@ -994,6 +994,10 @@ function initializeUI () {
 
   window.onresize = () => ui.updateSize()
   ui.updateSize()
+
+  if (ui.connectDialog.username()) {
+    ui.connectDialog.connect()
+  }
 }
 
 function log () {
