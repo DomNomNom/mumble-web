@@ -5,11 +5,11 @@
 window.mumbleWebConfig = {
   // Which fields to show on the Connect to Server dialog
   'connectDialog': {
-    'address': true,
-    'port': true,
-    'token': true,
+    'address': false,
+    'port': false,
+    'token': false,
     'username': true,
-    'password': true,
+    'password': false,
     'channelName': false
   },
   // Default values for user settings
@@ -28,7 +28,7 @@ window.mumbleWebConfig = {
   'defaults': {
     // Connect Dialog
     'address': window.location.hostname,
-    'port': '443',
+    'port': '443/demo',
     'token': '',
     'username': '',
     'password': '',
@@ -36,6 +36,6 @@ window.mumbleWebConfig = {
     'matrix': false, // enable Matrix Widget support (mostly auto-detected; implies 'joinDialog')
     'avatarurl': '', // download and set the user's Mumble avatar to the image at this URL
     // General
-    'theme': 'MetroMumbleLight'
+    'theme': 'MetroMumbleDark'
   }
 }
